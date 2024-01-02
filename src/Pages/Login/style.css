@@ -1,0 +1,51 @@
+.sectionPrincipal{
+  background-color: #d9d9d9;
+  padding: 8vh;
+}
+
+.titulo-form {
+  text-align: left;
+  padding-bottom: 1rem;
+}
+
+.box-container {
+  background-color: #f3f3f3;
+}
+
+
+.form-check-label {
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  padding-right: 13rem;
+}
+
+.gradient {  
+  background: linear-gradient(to right,  #1eb993, #46b494,  #1b5971, #1c5264);
+  }
+  .btn-group-lg>.btn, .btn-lg {
+    --bs-btn-padding-y: 0.4rem;
+    --bs-btn-padding-x: 8rem;
+    --bs-btn-font-size: 1.25rem;
+    --bs-btn-border-radius: 0.3rem;
+  }
+
+
+  
+  @media (min-width: 768px) {
+  .gradient-form {
+  height: 100vh !important;
+  }
+  }
+  @media (min-width: 769px) {
+  .gradient-custom-2 {
+  border-top-right-radius: .3rem;
+  border-bottom-right-radius: .3rem;
+  }
+  }
+
+  .gradient:hover {
+    background: linear-gradient(to left,  #1eb993, #46b494,  #1b5971, #1c5264);
+  }
+
+
