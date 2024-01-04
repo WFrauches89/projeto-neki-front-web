@@ -1,15 +1,30 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css'
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
+
 
 export default function Login() {
 
     const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+
 
     const handleInputChange = (e) => {
         setUsername(e.target.value);
     };
+
+    const handlePassChange = (e) => {
+        setPassword(e.target.value);
+    };
+
+    const showPass = () => {
+        setShowPassword(!showPassword);
+    };
+
 
 
     return (
@@ -49,8 +64,16 @@ export default function Login() {
                                             </Form.Group>
 
                                             <Form.Group className="form-floating mb-1">
-                                                <Form.Control type="password" id="formEmail" placeholder="Digite sua senha" />
-                                                <Form.Label htmlFor="formEmail" >Digite sua senha</Form.Label>
+                                                <Form.Control
+                                                    type={showPassword ? 'text' : 'password'}
+                                                    id="formPass"
+                                                    placeholder="Digite sua senha"
+                                                    value={password}
+                                                    onChange={handlePassChange} />
+                                                <Form.Label htmlFor="formPass" >Digite sua senha</Form.Label>
+                                                <div className="password-toggle-icon" onClick={showPass}>
+                                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                                </div>
                                             </Form.Group>
 
                                             <div className="text-center mb-3" >
@@ -72,9 +95,11 @@ export default function Login() {
 
                                             <div className="d-flex align-items-center justify-content-center pb-4">
                                                 <p className="mb-0 me-2">Não tem uma conta?</p>
-                                                <Button variant="outline-info" type="button">
-                                                    Cadastrar
-                                                </Button>
+                                                <Link to="/cadastro">
+                                                    <Button variant="outline-info" type="button">
+                                                        Cadastrar
+                                                    </Button>
+                                                </Link>
                                             </div>
                                         </Form>
                                     </Card.Body>
