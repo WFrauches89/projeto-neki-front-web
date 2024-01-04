@@ -13,7 +13,7 @@ export default function Cadastro() {
 
 
     return (
-        <section className="sectionPrincipal h-50 gradient-form" >
+        <section className="sectionPrincipalCadastro h-50 gradient-form" >
 
             <Container className="container">
                 <Row className="d-flex justify-content-center" >
@@ -22,10 +22,10 @@ export default function Cadastro() {
                             <Row>
                                 <Col lg={15}>
                                     <Card.Body className="p-md-3 mx-md-3">
-                                        <div className="logo">
+                                        <div className="logoCadastro" >
                                             <img
                                                 src="https://github.com/WFrauches89/projeto-neki-front-web/assets/101157962/36eec87c-8406-4096-b1d9-985087dbc66a                        "
-                                                style={{ width: "8rem", marginBottom: "1rem" }}
+                                                style={{ width: "6rem", margin: 'auto' }}
                                                 alt="logo"
                                             />
 

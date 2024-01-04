@@ -1,15 +1,15 @@
-import Login from './Pages/Login/index.jsx'
-import Cadastro from './Pages/Cadastro/index.jsx'
-import './indexapp.css'
+import { BrowserRouter } from 'react-router-dom';
+import Rotas from './routes/index';
+
 
 export default function App() {
-
   return (
     <>
-      {/* <Login /> */}
-      <Cadastro />
+      <BrowserRouter>
+
+        <Rotas />
+
+      </BrowserRouter>
     </>
-
-  )
-
+  );
 }

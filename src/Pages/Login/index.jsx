@@ -22,10 +22,10 @@ export default function Login() {
                             <Row>
                                 <Col lg={15}>
                                     <Card.Body className="p-md-3 mx-md-3">
-                                        <div className="logo">
+                                        <div className="logoLogin">
                                             <img
                                                 src="https://github.com/WFrauches89/projeto-neki-front-web/assets/101157962/36eec87c-8406-4096-b1d9-985087dbc66a                        "
-                                                style={{ width: "8rem", marginBottom: "1rem" }}
+                                                style={{ width: "6rem", margin: 'auto', }}
                                                 alt="logo"
                                             />
 
@@ -54,9 +54,9 @@ export default function Login() {
                                             </Form.Group>
 
                                             <div className="text-center mb-3" >
-                                                <div class="form-check form-switch mb-4">
-                                                    <input type="checkbox" class="form-check-input" id="flexSwitch" />
-                                                    <label class="form-check-label" for="flexSwitch">Mantenha conectado</label>
+                                                <div className="form-check form-switch mb-4">
+                                                    <input type="checkbox" className="form-check-input" id="flexSwitch" />
+                                                    <label className="form-check-label" htmlFor="flexSwitch">Mantenha conectado</label>
                                                 </div>
                                                 <div>
                                                     <Button className="btn btn-primary btn-lg btn-block gradient mb-3" type="submit">
