@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css'
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { AuthContext } from '../../context/index';
 
 
 export default function Login() {
 
-    const [username, setUsername] = useState('');
+    const { verificaLoginContext, verificaLoginStorage, isAuthenticated } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+    const [autenticado, setAutenticado] = useState(false);
+    const [espera, setEspera] = useState(false)
+
+
+
+
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
 
     const handleInputChange = (e) => {
-        setUsername(e.target.value);
+        setEmail(e.target.value);
     };
 
     const handlePassChange = (e) => {
@@ -24,6 +35,29 @@ export default function Login() {
     const showPass = () => {
         setShowPassword(!showPassword);
     };
+
+    const handleLogin = async (e) => {
+        setEspera(true)
+        await verificaLoginContext(email, password, () => {
+            setAutenticado(true);
+            console.log('Usuário autenticado dentro do Login:', isAuthenticated());
+            console.log('Usuário logado é:', email);
+            navigate('/Home');
+        });
+        setEspera(false)
+    };
+
+    useEffect(() => {
+        console.log(
+            'Usuário autenticado dentro do Login UseEffect:',
+            isAuthenticated(),
+        );
+    }, [isAuthenticated]);
+
+    useEffect(() => {
+        console.log('Usuário autenticado localmente:', autenticado);
+    }, [autenticado]);
+
 
 
 
@@ -57,9 +91,9 @@ export default function Login() {
                                                     type="email"
                                                     id="formEmail"
                                                     placeholder='Digite seu e-mail'
-                                                    value={username}
+                                                    value={email}
                                                     onChange={handleInputChange} />
-                                                <Form.Label htmlFor="form2Example11">Digite seu e-mail</Form.Label>
+                                                <Form.Label htmlFor="formEmail">Digite seu e-mail</Form.Label>
 
                                             </Form.Group>
 
@@ -82,7 +116,7 @@ export default function Login() {
                                                     <label className="form-check-label" htmlFor="flexSwitch">Mantenha conectado</label>
                                                 </div>
                                                 <div>
-                                                    <Button className="btn btn-primary btn-lg btn-block gradient mb-3" type="submit">
+                                                    <Button className="btn btn-primary btn-lg btn-block gradient mb-3" onClick={handleLogin}>
                                                         Entrar
                                                     </Button>
                                                 </div>
